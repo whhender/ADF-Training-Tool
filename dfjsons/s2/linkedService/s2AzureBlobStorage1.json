@@ -1,0 +1,13 @@
+{
+    "name":  "s2AzureBlobStorage1",
+    "type":  "Microsoft.DataFactory/factories/linkedservices",
+    "properties":  {
+                       "annotations":  [
+
+                                       ],
+                       "type":  "AzureBlobStorage",
+                       "typeProperties":  {
+                                              "connectionString":  "DefaultEndpointsProtocol=https;AccountName=dftrainingabswhhender;AccountKey=TVKoA4GkEfXr8rsBClcGiwOrkBnzOpgh+lM0wegaX3asRLnBxhMoGmVlJN084mIZSWq19FRqE3uuUEASzrLyWQ=="
+                                          }
+                   }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "S3BinarySource",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "s3AzureDataLakeStoregen1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "fileName": "bigfile.csv",
+                "folderPath": "S3SourceData"
+            }
+        }
+    }
+}

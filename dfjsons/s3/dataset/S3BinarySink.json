@@ -1,0 +1,17 @@
+{
+    "name": "S3BinarySink",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "s3sftp",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "SftpLocation",
+                "folderPath": "/upload"
+            }
+        }
+    }
+}

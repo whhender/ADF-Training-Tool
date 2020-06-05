@@ -1,0 +1,30 @@
+{
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion":  "1.0.0.0",
+    "parameters":  {
+                       "subscriptionId":  {
+                                              "value":  "eced600c-1185-4ae6-8b70-868d11f0e810"
+                                          },
+                       "servicePrincipalId":  {
+                                                  "value":  "edc0649a-8718-448c-a6f5-e04c2d9ec5d6"
+                                              },
+                       "AzureDataLakeStoreGen1_servicePrincipalKey":  {
+                                                                          "value":  "18abbc2e-1010-4d9f-833d-953d0675f8e7"
+                                                                      },
+                       "AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri":  {
+                                                                                                 "value":  "https://dftrainingadlwhhender.azuredatalakestore.net/webhdfs/v1"
+                                                                                             },
+                       "AzureDataLakeStoreGen1_properties_typeProperties_servicePrincipalId":  {
+                                                                                                   "value":  "edc0649a-8718-448c-a6f5-e04c2d9ec5d6"
+                                                                                               },
+                       "AzureDataLakeStoreGen1_properties_typeProperties_tenant":  {
+                                                                                       "value":  "72f988bf-86f1-41af-91ab-2d7cd011db47"
+                                                                                   },
+                       "AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId":  {
+                                                                                               "value":  "eced600c-1185-4ae6-8b70-868d11f0e810"
+                                                                                           },
+                       "AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName":  {
+                                                                                                  "value":  "DataFactoryTrainingRGwhhender"
+                                                                                              }
+                   }
+}

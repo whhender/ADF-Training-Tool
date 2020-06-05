@@ -1,0 +1,21 @@
+{
+    "name":  "s3sftp",
+    "type":  "Microsoft.DataFactory/factories/linkedservices",
+    "properties":  {
+                       "annotations":  [
+
+                                       ],
+                       "type":  "Sftp",
+                       "typeProperties":  {
+                                              "host":  "dfscenaiorcontainergroupwhhender.centralus.azurecontainer.io",
+                                              "port":  22,
+                                              "skipHostKeyValidation":  true,
+                                              "authenticationType":  "Basic",
+                                              "userName":  "sftpuser1",
+                                              "password":  {
+                                                               "type":  "SecureString",
+                                                               "value":  "sm4rtW@ter!"
+                                                           }
+                                          }
+                   }
+}

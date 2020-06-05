@@ -1,0 +1,157 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "factoryName": {
+      "type": "string",
+      "metadata": "Data Factory name",
+      "defaultValue": "whhenderDFTrainingDF"
+    },
+    "resourcegroupname": {
+      "type": "string"
+    },
+    "resourceLocation": {
+      "type": "string",
+      "defaultValue": "East US",
+      "metadata": {
+        "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
+      }
+    },
+    "accounts_whhenderdftrainingadl_name": {
+      "type": "string"
+    },
+    "sftpUser": {
+      "type": "string"
+    },
+    "sftpPassword": {
+      "type": "string"
+    },
+    "containerGroupDNSLabel": {
+      "type": "string"
+    },
+    "blobstorename": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]",
+    "sftpContainerName": "sftp",
+    "sftpContainerGroupName": "sftp-group",
+    "sftpContainerImage": "atmoz/sftp:latest",
+    "sftpEnvVariable": "[concat(parameters('sftpUser'), ':', parameters('sftpPassword'), ':1001')]",
+    "storageAccountId": "[resourceId(parameters('resourcegroupname'), 'Microsoft.Storage/storageAccounts', parameters('blobstorename'))]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('factoryName')]",
+      "apiVersion": "2018-06-01",
+      "type": "Microsoft.DataFactory/factories",
+      "location": "[parameters('resourceLocation')]",
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    },
+    {
+      "type": "Microsoft.DataLakeStore/accounts",
+      "apiVersion": "2016-11-01",
+      "name": "[parameters('accounts_whhenderdftrainingadl_name')]",
+      "location": "[parameters('resourceLocation')]",
+      "properties": {
+        "firewallState": "Disabled",
+        "firewallAllowAzureIps": "Disabled",
+        "firewallRules": [],
+        "virtualNetworkRules": [],
+        "trustedIdProviderState": "Disabled",
+        "trustedIdProviders": [],
+        "encryptionState": "Enabled",
+        "encryptionConfig": {
+          "type": "ServiceManaged"
+        },
+        "newTier": "Consumption"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[parameters('blobstorename')]",
+      "location": "centralus",
+      "sku": {
+        "name": "Standard_RAGRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+          "services": {
+            "file": {
+              "keyType": "Account",
+              "enabled": true
+            },
+            "blob": {
+              "keyType": "Account",
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Cool"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices",
+      "apiVersion": "2019-06-01",
+      "name": "[concat(parameters('blobstorename'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('blobstorename'))]"
+      ],
+      "sku": {
+        "name": "Standard_RAGRS",
+        "tier": "Standard"
+      },
+      "properties": {
+        "cors": {
+          "corsRules": []
+        },
+        "deleteRetentionPolicy": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/fileServices",
+      "apiVersion": "2019-06-01",
+      "name": "[concat(parameters('blobstorename'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('blobstorename'))]"
+      ],
+      "sku": {
+        "name": "Standard_RAGRS",
+        "tier": "Standard"
+      },
+      "properties": {
+        "cors": {
+          "corsRules": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
+      "apiVersion": "2019-06-01",
+      "name": "[concat(parameters('blobstorename'), '/default/s4fileshare')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('blobstorename'), 'default')]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('blobstorename'))]"
+      ],
+      "properties": {
+        "shareQuota": 5120
+      }
+    }
+  ]
+}

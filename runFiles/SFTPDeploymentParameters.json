@@ -1,0 +1,27 @@
+{
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion":  "1.0.0.0",
+    "parameters":  {
+                       "existingStorageAccountResourceGroupName":  {
+                                                                       "value":  ""
+                                                                   },
+                       "existingStorageAccountName":  {
+                                                          "value":  ""
+                                                      },
+                       "sftpuser":  {
+                                        "value":  ""
+                                    },
+                       "sftpPassword":  {
+                                            "value":  ""
+                                        },
+                       "location":  {
+                                        "value":  "centralus"
+                                    },
+                       "containerGroupDNSLabel":  {
+                                                      "value":  ""
+                                                  },
+                       "existingFileShareName":  {
+                                                     "value":  "s4fileshare"
+                                                 }
+                   }
+}

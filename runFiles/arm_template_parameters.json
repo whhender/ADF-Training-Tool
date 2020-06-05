@@ -1,0 +1,30 @@
+{
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion":  "1.0.0.0",
+    "parameters":  {
+                       "factoryName":  {
+                                           "value":  ""
+                                       },
+                       "accounts_whhenderdftrainingadl_name":  {
+                                                                   "value":  ""
+                                                               },
+                       "resourceLocation":  {
+                                                "value":  ""
+                                            },
+                       "blobstorename":  {
+                                             "value":  ""
+                                         },
+                       "sftpUser":  {
+                                        "value":  "sftpuser1"
+                                    },
+                       "sftpPassword":  {
+                                            "value":  "sm4rtW@ter!"
+                                        },
+                       "containerGroupDNSLabel":  {
+                                                      "value":  "dfscenaiorcontainergroupwhhender"
+                                                  },
+                       "resourcegroupname":  {
+                                                 "value":  "datafactorytrainingrgwhhender"
+                                             }
+                   }
+}

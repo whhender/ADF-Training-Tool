@@ -1,0 +1,21 @@
+{
+    "name":  "s1AzureDataLakeStoregen1",
+    "type":  "Microsoft.DataFactory/factories/linkedservices",
+    "properties":  {
+                       "annotations":  [
+
+                                       ],
+                       "type":  "AzureDataLakeStore",
+                       "typeProperties":  {
+                                              "dataLakeStoreUri":  "https://dftrainingadlwhhender.azuredatalakestore.net/webhdfs/v1",
+                                              "servicePrincipalId":  "2804c602-75dc-4c18-b25d-b4c38b3ffaeb",
+                                              "tenant":  "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                                              "subscriptionId":  "eced600c-1185-4ae6-8b70-868d11f0e810",
+                                              "resourceGroupName":  "datafactorytrainingrgwhhender",
+                                              "servicePrincipalKey":  {
+                                                                          "type":  "SecureString",
+                                                                          "value":  "d3bb18bd-e32f-4397-9d49-6c0a255e4a3d"
+                                                                      }
+                                          }
+                   }
+}

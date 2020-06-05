@@ -1,0 +1,35 @@
+{
+    "name": "S4DataLakeLookup",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "s4DataLakeStore",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "fileName": "s4data.csv",
+                "folderPath": "S4SourceData"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "type": "String"
+            },
+            {
+                "type": "String"
+            },
+            {
+                "type": "String"
+            },
+            {
+                "type": "String"
+            }
+        ]
+    }
+}

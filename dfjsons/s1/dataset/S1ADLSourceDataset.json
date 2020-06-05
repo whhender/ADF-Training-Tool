@@ -1,0 +1,18 @@
+{
+    "name": "S1ADLSourceDataset",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "S1AzureDataLakeStoreGen1",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "folderPath": "S1SourceData"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
