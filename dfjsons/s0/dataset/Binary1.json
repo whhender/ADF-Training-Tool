@@ -1,0 +1,17 @@
+{
+    "name": "Binary1",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "S0Source",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "folderPath": "S0Source"
+            }
+        }
+    }
+}

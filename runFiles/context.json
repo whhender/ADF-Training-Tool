@@ -3,28 +3,28 @@
     "contentVersion":  "1.0.0.0",
     "parameters":  {
                        "subscriptionId":  {
-                                              "value":  ""
+                                              "value":  "eced600c-1185-4ae6-8b70-868d11f0e810"
                                           },
                        "servicePrincipalId":  {
-                                                  "value":  ""
+                                                  "value":  "3badc847-9a2c-4ab4-a652-6bc3722c1802"
                                               },
                        "AzureDataLakeStoreGen1_servicePrincipalKey":  {
-                                                                          "value":  ""
+                                                                          "value":  "e4f37aea-dc35-4024-a986-e2f2bebfc6e7"
                                                                       },
                        "AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri":  {
-                                                                                                 "value":  ""
+                                                                                                 "value":  "https://dftrainingadlwhhender.azuredatalakestore.net/webhdfs/v1"
                                                                                              },
                        "AzureDataLakeStoreGen1_properties_typeProperties_servicePrincipalId":  {
-                                                                                                   "value":  ""
+                                                                                                   "value":  "3badc847-9a2c-4ab4-a652-6bc3722c1802"
                                                                                                },
                        "AzureDataLakeStoreGen1_properties_typeProperties_tenant":  {
-                                                                                       "value":  ""
+                                                                                       "value":  "72f988bf-86f1-41af-91ab-2d7cd011db47"
                                                                                    },
                        "AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId":  {
-                                                                                               "value":  ""
+                                                                                               "value":  "eced600c-1185-4ae6-8b70-868d11f0e810"
                                                                                            },
                        "AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName":  {
-                                                                                                  "value":  ""
+                                                                                                  "value":  "datafactorytrainingrgwhhender"
                                                                                               }
                    }
 }

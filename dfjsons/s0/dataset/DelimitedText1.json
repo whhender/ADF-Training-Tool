@@ -1,0 +1,26 @@
+{
+    "name": "DelimitedText1",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "S0Source",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "fileName": "outputcsv.csv",
+                "folderPath": "S0Source"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "type": "String"
+            }
+        ]
+    }
+}

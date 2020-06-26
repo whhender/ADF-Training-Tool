@@ -1,0 +1,13 @@
+{
+    "name":  "S0Sink",
+    "type":  "Microsoft.DataFactory/factories/linkedservices",
+    "properties":  {
+                       "annotations":  [
+
+                                       ],
+                       "type":  "AzureBlobStorage",
+                       "typeProperties":  {
+                                              "connectionString":  "DefaultEndpointsProtocol=https;AccountName=dftrainingabswhhender;AccountKey=VVXNWBe+wkBikHpSmuz0RZrA5MzUC6zD/fbHVZ9FKPAZdRAtEqfRNukbvwSjpA56xbqeQwqu6hS2ZEAiej2IpA=="
+                                          }
+                   }
+}

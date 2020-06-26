@@ -29,7 +29,7 @@ param
     [Parameter(ParameterSetName='CleanUp')]
     [switch] $CleanUp,
     [Parameter(ParameterSetName='LaunchScenario')]
-    [ValidateSet(1,2,3,4)]
+    [ValidateSet(0,1,2,3,4)]
     [string] $Scenario
 )
 
@@ -161,6 +161,41 @@ Function Deploy-DFScenario{
             [void](Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Name $pFileContent.Name -DefinitionFile $pipelineFilePath)
     }
     }
+}
+
+Function Run-DFPipeline{
+    Param (
+        [Parameter(Mandatory=$true)]
+        [string] $ScenarioNumber,
+        [Parameter(Mandatory=$true)]
+        [string]$DataFactoryName,
+        [Parameter(Mandatory=$true)]
+        [string]$ResourceGroupName
+    )
+
+    $PipelineName = "S" + $ScenarioNumber + "Pipeline"
+
+    Write-Output "Running Pipeline "$PipelineName
+
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -PipelineName $PipelineName
+
+    Write-Output "Pipeline Running"
+
+        $pipelineRunning = $true
+
+        while($pipelineRunning){
+            $result = Get-AzDataFactoryV2PipelineRun -PipelineRunId $runId -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+            if($result.Status -eq "InProgress"){
+                Write-Host "."
+                Start-Sleep -s 15
+            }
+            else{
+                Write-Host "Pipeline "$runId
+                Write-Host $result.Status
+                $pipelineRunning = $false
+            }
+
+        }
 }
 
 
@@ -342,9 +377,82 @@ elseif($Scenario){
     [void](Set-AzContext -SubscriptionId $Subscription)
 
     ######################################
+    # Scenario 0 - Insufficient Data Lake Permissions
+    ######################################
+    if($Scenario -eq "0"){    
+        ######################################
+        # Scenario 1 Variables
+        ######################################
+        $s0SourcePath = "/S0Source"
+        $s0DataLocation = ".\data\"
+        $s0DataLocation2 = ".\data2\"
+
+        ######################################
+        # Create Data Lake Folders, Upload File
+        ######################################
+        [void](New-AzDataLakeStoreItem -AccountName $DataLakeName -Path $s0SourcePath -Folder)
+
+        [void](Import-AzDataLakeStoreItem -AccountName $DataLakeName -Path $s0DataLocation -Destination $s0SourcePath)
+
+        ######################################
+        # Deploy Pipelines and Linked Services
+        ######################################
+        Deploy-DFScenario -ScenarioNumber $Scenario -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -SPKey $SPKey -SPID $SPID -Tenant (Get-AzSubscription -SubscriptionId $Subscription).TenantId -SubscriptionId $Subscription -DataLakeName $DataLakeName -ManagedIdentity -BlobStoreName $BlobStoreName
+
+
+        ######################################
+        # Confirm Friendly Blob Store
+        ######################################
+        [void](Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $ResourceGroupName -Name $BlobStoreName -DefaultAction Allow)
+
+        ######################################
+        # Run Pipeline 2 times
+        ######################################
+        
+        Run-DFPipeline -ScenarioNumber $Scenario -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+        
+        Run-DFPipeline -ScenarioNumber $Scenario -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName     
+         
+        
+        ######################################
+        # Modify Blob Store Firewall for Failure
+        ######################################   
+        
+        [void](Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $ResourceGroupName -Name $BlobStoreName -DefaultAction Deny)
+
+
+        ######################################
+        # Run Pipeline Again (Should Fail)
+        ######################################
+        
+        Run-DFPipeline -ScenarioNumber $Scenario -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+
+
+        ######################################
+        # Correct Blob Store Firewall
+        ######################################
+
+        [void](Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $ResourceGroupName -Name $BlobStoreName -DefaultAction Allow)
+
+        ######################################
+        # Upload Additional Data
+        ######################################
+
+        [void](Import-AzDataLakeStoreItem -AccountName $DataLakeName -Path $s0DataLocation2 -Destination $s0SourcePath)
+
+        ######################################
+        # Run Pipeline Again (Should Succeed)
+        ######################################
+        
+        Run-DFPipeline -ScenarioNumber $Scenario -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    
+    }
+
+
+    ######################################
     # Scenario 1 - Insufficient Data Lake Permissions
     ######################################
-    if($Scenario -eq "1"){    
+    elseif($Scenario -eq "1"){    
         ######################################
         # Scenario 1 Variables
         ######################################
@@ -572,9 +680,10 @@ else{
     = trainee engineer, as well as a description of the issue.
     =
     = Parameters to Run:
-    = -Scenario [1,2,4]
+    = -Scenario [0,1,2,3,4]
     =
     = Available Scenarios:
+    = 0. Multiple Pipeline Runs With Some Failure and Some Success to Teach Kusto Skills
     = 1. Data Factory Run Fails Due to Incomplete Permissions on Data Lake Store
     = 2. Blob Linked Service Cannot Connect Due to Firewall & Using Account Key
     = 3. SFTP Copy Activity Running More Slowly than Desired

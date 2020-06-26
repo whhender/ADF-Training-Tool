@@ -1,0 +1,15 @@
+{
+    "name":  "S0Source",
+    "properties":  {
+                       "annotations":  [
+
+                                       ],
+                       "type":  "AzureDataLakeStore",
+                       "typeProperties":  {
+                                              "dataLakeStoreUri":  "https://dftrainingadlwhhender.azuredatalakestore.net/webhdfs/v1",
+                                              "tenant":  "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                                              "subscriptionId":  "eced600c-1185-4ae6-8b70-868d11f0e810",
+                                              "resourceGroupName":  "datafactorytrainingrgwhhender"
+                                          }
+                   }
+}
