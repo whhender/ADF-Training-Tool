@@ -506,6 +506,7 @@ elseif($Scenario){
 
         Deploy-DFScenario -ScenarioNumber $Scenario -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -SPKey $SPKey -SPID $SPID -Tenant (Get-AzSubscription -SubscriptionId $Subscription).TenantId -SubscriptionId $Subscription -BlobStoreName $BlobStoreName
 
+
     }
 
     ######################################

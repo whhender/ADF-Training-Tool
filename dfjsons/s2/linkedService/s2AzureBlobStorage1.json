@@ -7,7 +7,7 @@
                                        ],
                        "type":  "AzureBlobStorage",
                        "typeProperties":  {
-                                              "connectionString":  "DefaultEndpointsProtocol=https;AccountName=dftrainingabswhhender;AccountKey=TVKoA4GkEfXr8rsBClcGiwOrkBnzOpgh+lM0wegaX3asRLnBxhMoGmVlJN084mIZSWq19FRqE3uuUEASzrLyWQ=="
+                                              "connectionString":  "DefaultEndpointsProtocol=https;AccountName=dftrainingabswhhender;AccountKey=VVXNWBe+wkBikHpSmuz0RZrA5MzUC6zD/fbHVZ9FKPAZdRAtEqfRNukbvwSjpA56xbqeQwqu6hS2ZEAiej2IpA=="
                                           }
                    }
 }

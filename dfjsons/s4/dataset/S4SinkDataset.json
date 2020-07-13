@@ -5,13 +5,19 @@
             "referenceName": "s4DataLakeStore",
             "type": "LinkedServiceReference"
         },
+        "parameters": {
+            "folderName": {
+                "type": "string",
+                "defaultValue": "defaultFileName"
+            }
+        },
         "annotations": [],
         "type": "DelimitedText",
         "typeProperties": {
             "location": {
                 "type": "AzureDataLakeStoreLocation",
                 "folderPath": {
-                    "value": "@activity('Lookup1').output",
+                    "value": "@dataset().folderName",
                     "type": "Expression"
                 }
             },
@@ -33,5 +39,6 @@
                 "type": "String"
             }
         ]
-    }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
 }

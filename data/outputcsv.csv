@@ -1,0 +1,11 @@
+Path,Type,Count,DisplayNames
+/,Access,7,System.Object[]
+/,Default,1,190b4f09-9952-4f94-b314-05142ff48412
+/ftptest/Copy of bigfile USE.csv,Access,3,System.Object[]
+/ftptest/Copy of bigfile USE.csv,Default,0,@{DisplayNames=; Path=/ftptest/Copy of bigfile USE.csv}
+/ftptest/Data and Enterprise Cloud.pptx,Access,3,System.Object[]
+/ftptest/Data and Enterprise Cloud.pptx,Default,0,@{DisplayNames=; Path=/ftptest/Copy of bigfile USE.csv}
+/ftptest/NC Onboarding Plan Open Source.docx,Access,3,System.Object[]
+/ftptest/NC Onboarding Plan Open Source.docx,Default,0,@{DisplayNames=; Path=/ftptest/Copy of bigfile USE.csv}
+/ftptest,Access,3,System.Object[]
+/ftptest,Default,0,@{DisplayNames=; Path=/ftptest/Copy of bigfile USE.csv}

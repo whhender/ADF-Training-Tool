@@ -1,0 +1,10 @@
+@searchlog =
+    EXTRACT Word          string,
+            Number           int,
+            Animal          string
+    FROM "/fine.csv"
+    USING Extractors.Csv();
+
+OUTPUT @searchlog   
+    TO "/output/SearchLog-first-u-sql.csv"
+    USING Outputters.Csv();

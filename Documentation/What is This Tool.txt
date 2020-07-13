@@ -1,0 +1,16 @@
+What is DFTrainingEnvManager?
+
+This is a PowerShell Script that creates a Data Factory Training environment within an azure subscription.
+It then deploys several scenarios that can be used to practice troubleshooting.
+
+Once you are finished with the environment, you can use this tool to remove the environment from your subscription.
+
+The scenarios can be used for:
+1. Kusto Training
+2. Troubleshooting Training
+3. Case Management Training
+
+The tool is meant to be deployed by Data Factory SMEs/Mentors to train new engineers.
+
+New scenarios can be added to the troubleshooting tool as well. If you do add scenarios, please feel free
+to upload the changes/additions to git so all can enjoy.

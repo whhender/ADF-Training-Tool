@@ -28,7 +28,8 @@
                     "dataset": {
                         "referenceName": "S4DataLakeLookup",
                         "type": "DatasetReference"
-                    }
+                    },
+                    "firstRowOnly": true
                 }
             },
             {
@@ -83,11 +84,18 @@
                 "outputs": [
                     {
                         "referenceName": "S4SinkDataset",
-                        "type": "DatasetReference"
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "folderName": {
+                                "value": "@activity('Lookup1').output",
+                                "type": "Expression"
+                            }
+                        }
                     }
                 ]
             }
         ],
         "annotations": []
-    }
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
 }

@@ -10,11 +10,12 @@
         "typeProperties": {
             "location": {
                 "type": "AzureDataLakeStoreLocation",
-                "fileName": "s4data.csv",
-                "folderPath": "S4SourceData"
+                "fileName": "s1data.csv",
+                "folderPath": "S1SourceData"
             },
             "columnDelimiter": ",",
             "escapeChar": "\\",
+            "firstRowAsHeader": true,
             "quoteChar": "\""
         },
         "schema": [
@@ -31,5 +32,6 @@
                 "type": "String"
             }
         ]
-    }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
 }

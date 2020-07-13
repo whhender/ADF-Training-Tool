@@ -1,0 +1,18 @@
+To open a test case in Service desk to pair with these cases, use +Case in the service desk
+home page.
+
+To make sure that test cases are appropriately deleted and NOT counted toward any products stats, 
+follow all these instructions:
+
+
+1. Test cases should have a Support Area Path of Windows / PSS Other
+2. Test cases should have documentation that it is in fact a test case in following fields:
+	· Customer Statement
+	· Internal Title
+	· Case Title
+	· Notes (as needed)
+3. Provide a Root Cause or Symptom if required. Some taxonomies have Other/Test/etc. as options. 
+   Otherwise, select a value that is most appropriate.
+4. Close the case with Status of Duplicate.
+
+https://microsoft.sharepoint.com/:w:/t/LegacyUploaded_BemisRepository/Bemis/EQfKFBQEJ1ZKpkJp2hqdqqwB-C6_5skrki0zgNyMSIgwHw?e=GiAlFk

@@ -1,0 +1,13 @@
+1. Please send emails and meeting requests as you would to a real customer.
+2. If you need a collab opened to another team, create a normal collab task but assign it to your
+   trainer/mentor/the engineer delivering these scenarios. They will act as the engineer from another team.
+3. If you want to open an ICM, create a collab task and provide all the information you would normally
+   provide the product team, but assign the collab task to your trainer/mentor/the engineer delivering
+   these scenarios. They will act as the product team for these cases.
+4. Though the ASC search function is a great tool for troubleshooting customer cases, please do not use it 
+   for these test cases. These test cases have been delivered to multiple engineers and will show up in ASC
+   so please use other tools/troubleshooting processes to resolve.
+5. If you need help troubleshooting, your mentor/trainer/the engineer delivering these scenarios can provide
+   help as if they are a TA/peer who is helping you with a case. Do reach out to them!
+6. Once you are finished with a case, please assign to your trainer/mentor/the engineer delivering training so
+   they can appropriately close it as a test case.
