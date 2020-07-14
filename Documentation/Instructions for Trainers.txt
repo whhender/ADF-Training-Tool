@@ -1,0 +1,18 @@
+1. Run PowerShell tool on SetUp mode to spin up environment.
+2. Read through Scenarios doc to choose a scenario.
+3. For Scenario 0:
+	a. Run PowerShell tool on -Scenario 0
+	b. Gather one of the run Ids from your Data Factory environment.
+	c. Either use this run ID to take your engineer through kusto basics or
+           send run ID and questions for scenario to engineer so they can practice kusto skills.
+4. For Scenarios 1-4:
+	a. Run PowerShell tool for Scenario
+	b. Gather run ID and/or Scenario customer verbatim to send to engineer.
+	c. Send Trainee instructions to trainee engineer.
+	d. Either create a test case (as outlined in Make A Test Service Desk Case) or email ID and verbatim
+	   to engineer to troubleshoot.
+	e. During troubleshooting process act as Customer, Mentor, Product Team, and collaborators for trainee.
+	f. On completion of troubleshooting review these aspects of the case for engineer growth:
+		i. Troubleshooting Process
+		ii. Customer Communications (including FQR and LQR)
+		iii. Case Notes
