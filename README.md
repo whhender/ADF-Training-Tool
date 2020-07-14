@@ -76,21 +76,20 @@ to upload the changes/additions to git so all can enjoy.
 1. Run PowerShell tool on SetUp mode to spin up environment.
 2. Read through Scenarios doc to choose a scenario.
 3. For Scenario 0:
-	a. Run PowerShell tool on -Scenario 0
-	b. Gather one of the run Ids from your Data Factory environment.
-	c. Either use this run ID to take your engineer through kusto basics or
+a. Run PowerShell tool on -Scenario 0
+b. Gather one of the run Ids from your Data Factory environment.
+c. Either use this run ID to take your engineer through kusto basics or
            send run ID and questions for scenario to engineer so they can practice kusto skills.
 4. For Scenarios 1-4:
-	a. Run PowerShell tool for Scenario
-	b. Gather run ID and/or Scenario customer verbatim to send to engineer.
-	c. Send Trainee instructions to trainee engineer.
-	d. Either create a test case (as outlined in Make A Test Service Desk Case) or email ID and verbatim
-	   to engineer to troubleshoot.
-	e. During troubleshooting process act as Customer, Mentor, Product Team, and collaborators for trainee.
-	f. On completion of troubleshooting review these aspects of the case for engineer growth:
-		i. Troubleshooting Process
-		ii. Customer Communications (including FQR and LQR)
-		iii. Case Notes
+a. Run PowerShell tool for Scenario
+b. Gather run ID and/or Scenario customer verbatim to send to engineer.
+c. Send Trainee instructions to trainee engineer.
+d. Either create a test case (as outlined in Make A Test Service Desk Case) or email ID and verbatim to engineer to troubleshoot.
+e. During troubleshooting process act as Customer, Mentor, Product Team, and collaborators for trainee.
+f. On completion of troubleshooting review these aspects of the case for engineer growth:
+i. Troubleshooting Process
+ii. Customer Communications (including FQR and LQR)
+iii. Case Notes
 
 ## Make a Test Service Desk Case
 
@@ -162,6 +161,7 @@ List of Questions:
 	12. Has this Pipeline Run more than once? If so, how many times?
 	 
 For any one of the copy activities (in the original pipeline run):
+	
 	13. What kind of source?
 	14. What kind of sink?
 	15. Name of the source resource?
@@ -172,6 +172,7 @@ For any one of the copy activities (in the original pipeline run):
 	20. What was the path of the sink data?
 
 For one successful copy activity please answer the following:
+
 	22. Activity Run ID
 	23. How many files went through the activity? 
 	24. What was the size of the data?
@@ -182,6 +183,7 @@ For one successful copy activity please answer the following:
 	29. How long did it write to the sink?
 
 For one failed copy activity please answer the following:
+
 	30. Activity Run ID
 	31. Successful or Failed
 	32. How many files went through the activity? 
@@ -321,23 +323,19 @@ Information to Provide:
 4. If engineer asks about SFTP performance on customer side, they should be told that SFTP is not seeing any latency and is processing requests quickly.
    But that the sftp can only see data coming in in small chunks.
 5. If engineer "Opens an ICM" (all 'ICMs' should be a collab task assigned to mentor/trainer) to the ADF team they should be asked to provide:
-	a. Source Connector Type
-	b. Sink Connector Type
-	c. How Many files are being moved
-	d. Size of file being moved
-	e. Parallelism Used
-	f. Run ID 
+a. Source Connector Type
+b. Sink Connector Type
+c. How Many files are being moved
+d. Size of file being moved
+e. Parallelism Used
+f. Run ID 
 
-	g. Once the information a-f is provided, 'product group' should request:
-		i. A network trace from the SFTP during copy. (results will be provided from 'customer')
-			Results of this collected network trace will be that during the whole copy, SFTP saw a consistant network
-			traffic of 11mb. Traffic was no higher than this at any time during the copy.
-		ii. That the pipeline be tried with a self-hosted integration runtime.
-		iii. That a network trace be taken from self-hosted ir machine.
+g. Once the information a-f is provided, 'product group' should request:
+i. A network trace from the SFTP during copy. (results will be provided from 'customer') Results of this collected network trace will be that during the whole copy, SFTP saw a consistant network traffic of 11mb. Traffic was no higher than this at any time during the copy.
+ii. That the pipeline be tried with a self-hosted integration runtime.
+iii. That a network trace be taken from self-hosted ir machine.
 
-	h. Once information from g is provided, the product team should indicate that Currently, the SFTP connector can only write in parallel to multiple files, 
-	   but cannot write in parallel to a single file. This is therefore the best performance the customer is going to get from the SFTP connector for a single,
-           large file.
+h. Once information from g is provided, the product team should indicate that Currently, the SFTP connector can only write in parallel to multiple files, but cannot write in parallel to a single file. This is therefore the best performance the customer is going to get from the SFTP connector for a single, large file.
 
 
 Skills we're looking for:
