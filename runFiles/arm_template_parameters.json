@@ -3,16 +3,16 @@
     "contentVersion":  "1.0.0.0",
     "parameters":  {
                        "factoryName":  {
-                                           "value":  "dftrainingadfwhhender"
+                                           "value":  ""
                                        },
                        "accounts_whhenderdftrainingadl_name":  {
-                                                                   "value":  "dftrainingadlwhhender"
+                                                                   "value":  ""
                                                                },
                        "resourceLocation":  {
-                                                "value":  "centralus"
+                                                "value":  ""
                                             },
                        "blobstorename":  {
-                                             "value":  "dftrainingabswhhender"
+                                             "value":  ""
                                          },
                        "sftpUser":  {
                                         "value":  "sftpuser1"

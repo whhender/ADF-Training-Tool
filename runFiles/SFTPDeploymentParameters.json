@@ -3,22 +3,22 @@
     "contentVersion":  "1.0.0.0",
     "parameters":  {
                        "existingStorageAccountResourceGroupName":  {
-                                                                       "value":  "datafactorytrainingrgwhhender"
+                                                                       "value":  ""
                                                                    },
                        "existingStorageAccountName":  {
-                                                          "value":  "dftrainingabswhhender"
+                                                          "value":  ""
                                                       },
                        "sftpuser":  {
-                                        "value":  "sftpuser1"
+                                        "value":  ""
                                     },
                        "sftpPassword":  {
-                                            "value":  "sm4rtW@ter!"
+                                            "value":  ""
                                         },
                        "location":  {
                                         "value":  "centralus"
                                     },
                        "containerGroupDNSLabel":  {
-                                                      "value":  "dfscenaiorcontainergroupwhhender"
+                                                      "value":  ""
                                                   },
                        "existingFileShareName":  {
                                                      "value":  "s4fileshare"
